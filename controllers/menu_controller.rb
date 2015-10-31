@@ -14,7 +14,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - View entry number n"
+    puts "6 - Exit"
     print "Enter your selection:"
 
 
@@ -39,6 +40,13 @@ class MenuController
       read_csv
       main_menu
     when 5
+      system "clear"
+      puts "What entry would you like to view?"
+      selection = gets.to_i
+      view_entry_num
+      # system "clear"
+      # puts "You picked entry number #{selection} which is #{entry}!"
+    when 6
       puts "Good-bye!"
 
       exit(0)
@@ -84,6 +92,19 @@ class MenuController
   def read_csv
   end
 
+  def view_entry_num
+    # index = 0
+    @entries.each do |name, phone_number, email|
+      puts "#{selection}" if "#{selection}" == entry.name
+      # if "#{selection}" == @entries.name || entry.phone_number || entry.email
+      #   puts "#{selection}"
+      # else
+      #   puts "No matching entry, try again!"
+    # end
+  end
+
+end
+
   def entry_submenu(entry)
 
     puts "n - next entry"
@@ -92,7 +113,7 @@ class MenuController
     puts "m - return to main menu"
 
     selection = gets.chomp
-    #I don't understand the chomp here
+    #I don't understand what chomp does here
 
     case selection
 
