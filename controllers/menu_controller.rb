@@ -97,7 +97,7 @@ class MenuController
     case selection
 
     when "n"
-      #I don't get how 'when "n"' automatically does nothing and hands control
+      #I don't get how 'when n' automatically does nothing and hands control
       # over to 'view_all_entries'
 
     when "d"
