@@ -41,9 +41,12 @@ class MenuController
       main_menu
     when 5
       system "clear"
-      puts "What entry would you like to view?"
-      selection = gets.to_i
-      view_entry_num
+      entry_n_submenu
+      main_menu
+      # system "clear"
+      # puts "What entry would you like to view?"
+      # selection = gets.to_i
+      # view_entry_num
       # system "clear"
       # puts "You picked entry number #{selection} which is #{entry}!"
     when 6
@@ -55,6 +58,20 @@ class MenuController
       system "clear"
       puts "Sorry, that is not a valid input"
       main_menu
+    end
+  end
+
+  def entry_n_submenu
+    print "Entry number to view:"
+    selection = gets.chomp.to_i
+
+    if selection < @address_book.entries.count
+      puts "Press enter to return to the main menu"
+      gets.chomp
+      system "clear"
+    else
+      puts "#{selection} is not a valid input"
+      entry_n_submenu
     end
   end
 
@@ -91,19 +108,6 @@ class MenuController
 
   def read_csv
   end
-
-  def view_entry_num
-    # index = 0
-    @entries.each do |name, phone_number, email|
-      puts "#{selection}" if "#{selection}" == entry.name
-      # if "#{selection}" == @entries.name || entry.phone_number || entry.email
-      #   puts "#{selection}"
-      # else
-      #   puts "No matching entry, try again!"
-    # end
-  end
-
-end
 
   def entry_submenu(entry)
 
