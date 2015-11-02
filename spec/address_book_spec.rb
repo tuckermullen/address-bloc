@@ -42,7 +42,7 @@ RSpec.describe AddressBook do
   end
 
   describe "#import_from_csv" do
-    it "imports the correct number of entires" do
+    it "imports the correct number of entries" do
 
       book.import_from_csv("entries.csv")
       book_size = book.entries.size
@@ -78,6 +78,34 @@ RSpec.describe AddressBook do
       book.import_from_csv("entries.csv")
       entry_five = book.entries[4]
       check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
+    end
+
+      describe "#import_from_csv" do
+        it "imports the correct number of entries" do
+
+          book.import_from_csv("entries_2.csv")
+          book_size = book.entries.size
+
+          expect(book_size).to eql 3
+      end
+
+      it "imports the 1st entry" do
+        book.import_from_csv("entries_2.csv")
+        entry_one = book.entries[0]
+        check_entry(entry_one, "Mike", "123-456-7890", "mike@gmail.com")
+      end
+
+      it "imports the 2nd entry" do
+        book.import_from_csv("entries_2.csv")
+        entry_two = book.entries[1]
+        check_entry(entry_two, "Shelly", "123-456-7891", "shelly@gmail.com")
+      end
+
+      it "imports the 3rd entry" do
+        book.import_from_csv("entries_2.csv")
+        entry_three = book.entries[2]
+        check_entry(entry_three, "Taylor", "123-456-7892", "taylor@gmail.com")
+      end
     end
 
   end
