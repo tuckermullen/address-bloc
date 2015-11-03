@@ -55,14 +55,14 @@ class AddressBook
     end
 
     def iterative_search(name)
-
-      lower = AddressBook.entries
-
-      lower.each_with_index do |name, index|
-        lower += 1 until lower == AddressBook.entries[index]
+      @entries.each do |entry|
+        if entry.name == name
+          return entry
+        end
       end
+      return nil
     end
 
-
+    
   end
 end
