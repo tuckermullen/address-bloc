@@ -43,12 +43,6 @@ class MenuController
       system "clear"
       entry_n_submenu
       main_menu
-      # system "clear"
-      # puts "What entry would you like to view?"
-      # selection = gets.to_i
-      # view_entry_num
-      # system "clear"
-      # puts "You picked entry number #{selection} which is #{entry}!"
     when 6
       puts "Good-bye!"
 
@@ -66,6 +60,7 @@ class MenuController
     selection = gets.chomp.to_i
 
     if selection < @address_book.entries.count
+      puts @address_book.entries[selection]
       puts "Press enter to return to the main menu"
       gets.chomp
       system "clear"
@@ -117,13 +112,10 @@ class MenuController
     puts "m - return to main menu"
 
     selection = gets.chomp
-    #I don't understand what chomp does here
 
     case selection
 
     when "n"
-      #I don't get how 'when n' automatically does nothing and hands control
-      # over to 'view_all_entries'
 
     when "d"
     when "e"
@@ -135,7 +127,6 @@ class MenuController
       system "clear"
       puts "#{selection} is not a valid input"
       entries_submenu(entry)
-      #why is this entries_submenu and not entry_submenu?
     end
   end
 end
