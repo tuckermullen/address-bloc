@@ -14,7 +14,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - View entry number n"
+    puts "6 - Exit"
     print "Enter your selection:"
 
 
@@ -39,6 +40,10 @@ class MenuController
       read_csv
       main_menu
     when 5
+      system "clear"
+      entry_n_submenu
+      main_menu
+    when 6
       puts "Good-bye!"
 
       exit(0)
@@ -47,6 +52,21 @@ class MenuController
       system "clear"
       puts "Sorry, that is not a valid input"
       main_menu
+    end
+  end
+
+  def entry_n_submenu
+    print "Entry number to view:"
+    selection = gets.chomp.to_i
+
+    if selection < @address_book.entries.count
+      puts @address_book.entries[selection]
+      puts "Press enter to return to the main menu"
+      gets.chomp
+      system "clear"
+    else
+      puts "#{selection} is not a valid input"
+      entry_n_submenu
     end
   end
 
@@ -92,13 +112,10 @@ class MenuController
     puts "m - return to main menu"
 
     selection = gets.chomp
-    #I don't understand the chomp here
 
     case selection
 
     when "n"
-      #I don't get how 'when n' automatically does nothing and hands control
-      # over to 'view_all_entries'
 
     when "d"
     when "e"
@@ -110,7 +127,6 @@ class MenuController
       system "clear"
       puts "#{selection} is not a valid input"
       entries_submenu(entry)
-      #why is this entries_submenu and not entry_submenu?
     end
   end
 end
