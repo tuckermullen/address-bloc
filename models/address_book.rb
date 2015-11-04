@@ -8,6 +8,10 @@ class AddressBook
     @entries =[]
   end
 
+  def nuke
+    @entries = []
+  end
+
   def add_entry(name, phone_number, email)
 
     index = 0
@@ -51,7 +55,7 @@ class AddressBook
       end
 
       return nil
-      
+
     end
   end
 end

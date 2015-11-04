@@ -41,7 +41,8 @@ class MenuController
       main_menu
     when 5
       system "clear"
-      nuke_entries
+      @address_book.nuke
+      puts "All entries deleted!"
       main_menu
     when 6
       puts "Good-bye!"
@@ -147,10 +148,10 @@ class MenuController
     end
   end
 
-  def nuke_entries
-    @address_book.entries.delete_all(entry)
-    puts "All entries have been deleted"
-  end
+  # def nuke_entries
+  #   @address_book.entries.delete_all(entry)
+  #   puts "All entries have been deleted"
+  # end
 
   def delete_entry(entry)
     @address_book.entries.delete(entry)
